@@ -10,7 +10,7 @@
     <?php include 'header.php';?>
     <div class="container">
       <button type="button" class="btn btn-danger istrinti">Ištrinti</button>
-      <button type="button" class="btn btn-warning istrinti"><a href="konfiguracija.php" style="color: white">Konfiguracija</a></button>
+      <button type="button" class="btn btn-warning"><a href="konfiguracija.php" style="color: white">Konfiguracija</a></button>
       <h3 class="status_messsage1"></h3>
       <?php include 'admin_panel_products.php'; ?>
 

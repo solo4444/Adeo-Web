@@ -85,5 +85,16 @@ function get_product_rating_average($pavadinimas)
     }
 
 }
+function get_configuration()
+{
+  $sql = "SELECT * FROM konfiguracija";
+  $results = connect_to_db("adeo-web-duomenys")->query($sql);
+  if($results){
+  return $results;
+  }
+  else {
+      echo connect_to_db("adeo-web-duomenys")->error;
+  }
+}
 
 ?>
