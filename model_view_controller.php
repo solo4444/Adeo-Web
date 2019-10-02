@@ -33,13 +33,23 @@ function get_product_data($pavadinimas){
     while($row = $result->fetch_assoc()){
         // $message = $row["Pavadinimas"];
         // echo "<script type='text/javascript'>alert('$message');</script>";
-    if($row["Pavadinimas"] == $pavadinimas){
+    if($row["UID"] == $pavadinimas){
     return $row;
     }
     else{
         echo connect_to_db("adeo-web-duomenys")->error;
     }
 }
+}
+function get_products_data_for_grid(){
+  $sql = "SELECT ID, Pavadinimas, Aprasymas, Nuotrauka, Kaina, Ivertinimas, Kategorija, UID, Status, Spec_kaina FROM products WHERE Status ='1'";
+  $result = connect_to_db("adeo-web-duomenys")->query($sql);
+  if($result){
+  return $result;
+  }
+  else {
+      echo connect_to_db("adeo-web-duomenys")->error;
+  }
 }
 function get_filter_by_category($category)
 {

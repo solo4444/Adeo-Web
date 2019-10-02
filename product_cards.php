@@ -18,23 +18,35 @@ if($konfiguracija["rodyti_su_mokesciais"]){
 else{
   $formattedNum = number_format($row["Kaina"], 2);
 }
-if($konfiguracija["g_nuolaida_procentais"] != 0 && $result["Spec_kaina"]){
-  $formattedNumWithDiscount = $formattedNum * ($konfiguracija["g_nuolaida_procentais"] / 100) + $formattedNum;
+
+if($row["Spec_kaina"] != 0){
+  $line = "<h5 class=\"card-title\">".$row["Spec_kaina"]."$ <strike>".$formattedNum."$ </strike></h5>";
 }
-else if($konfiguracija["g_nuolaida_fiksuota"] != 0 && $result["Spec_kaina"]){
+else if($konfiguracija["g_nuolaida_procentais"] != 0 && $row["Spec_kaina"] == 0){
+  $formattedNumWithDiscount = $formattedNum - $formattedNum * ($konfiguracija["g_nuolaida_procentais"] / 100) ;
+  $formattedNumWithDiscount = number_format($formattedNumWithDiscount, 2);
+  $line = "<h3 class=\"card-title\"> ".$formattedNumWithDiscount."$</h3> <strike>".$formattedNum."$ </strike>";
+}
+else if($konfiguracija["g_nuolaida_fiksuota"] != 0 && $row["Spec_kaina"] == 0){
   $formattedNumWithDiscount = $formattedNum - $konfiguracija["g_nuolaida_fiksuota"];
+  $formattedNumWithDiscount = number_format($formattedNumWithDiscount, 2);
+  $line = "<h3 class=\"card-title w-15\">".$formattedNumWithDiscount."$</h3> <strike>".$formattedNum."$ </strike>";
 }
 else {
-  $line = "<h5 class=\"card-title\">".$formattedNum."$ </h5>";
+  $line = "<h5 class=\"card-title w-15\">".$formattedNum."$ </h5>";
 }
+
+if($konfiguracija["rodyti_su_mokesciais"]){$line= $line."<p style=\"font-style: italic; \"> su PVM</p>";}
+else{$line= $line."<p style=\"font-style: italic; \"> + PVM</p>";}
 $rating = $result["Ivertinimo_vidurkis"]*10*2;
-echo"<a href=\"product_detail.php?pavadinimas=".$row["Pavadinimas"]."\"><div class=\"card product-card \">";
+echo"<a href=\"product_detail.php?pavadinimas=".$row["UID"]."\"><div class=\"card product-card \">";
 echo"<div class=\"card-body\">";
 echo"<h5 class=\"card-title product-name\">".$row["Pavadinimas"]."</h5>";
+echo"<h5 class=\"card-title product-name\" style=\"float: right\">".$row["UID"]."</h5>";
 echo"</div>";
 echo"<img class=\"card-img-top\" src=\"img/".$row["Nuotrauka"]."\"alt=\"Card image\" height=\"100%\" width=\"100%\">";
 echo"</a><div class=\"card-body\">";
-echo"<h5 class=\"card-title\">".$formattedNum."$ ".$formattedNumWithDiscount."$</h5>";
+echo "<div class=\"d-flex flex-row\">".$line."</div>";
 echo "<form action=\"\" method=\"POST\" class=\"add-to-cart\">";
 echo"<button type=\"button\" name=\"Į krepšelį\" class=\"add-to-shopping-cart-button btn-success\">Į krepšelį</button>";
 echo "<div class=\"star-ratings-sprite\"><span style=\"width:".$rating."%\" class=\"star-ratings-sprite-rating\"></span></div>";

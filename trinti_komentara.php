@@ -6,7 +6,7 @@ if(isset($_POST["Username"]) && isset($_POST["Komentaras"]) && isset($_POST["Rei
     $komentaras = mysqli_real_escape_string($conn,$_POST["Komentaras"]);
     $reitingas = mysqli_real_escape_string($conn,$_POST["Reitingas"]);
     $data = mysqli_real_escape_string($conn,$_POST["Data"]);
-    $sql = "DELETE FROM produkto_komentarai WHERE Username='$username' AND Komentaras ='$komentaras' AND Ivertinimas='$reitingas' AND Data = '$data'";
+    $sql = "DELETE FROM produkto_komentarai WHERE Username='$username' AND Komentaras ='$komentaras' AND Data = '$data'";
     if ($conn->query($sql) === TRUE) {
         echo "Komentaras pasalintas!";
     } else {

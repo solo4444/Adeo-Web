@@ -33,7 +33,7 @@ echo '
       <th><input type="checkbox" name="pazymetas" value="'.$row["ID"].'"></th>
       <td scope="row">'.$row["ID"].'</th>
       <td>'.$row["Pavadinimas"].'</td>
-      <td><a href="product_detail.php?pavadinimas='.$row["Pavadinimas"].'">linkas</a></td>
+      <td><a href="product_detail.php?pavadinimas='.$row["UID"].'">linkas</a></td>
       <td>'.$row["Nuotrauka"].'</td>
       <td>'.$row["Kaina"].'</td>
       <td>'.$row["Spec_kaina"].'</td>

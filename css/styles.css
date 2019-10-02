@@ -28,6 +28,7 @@ body nav .menu-content li a{
 body nav .menu-content li:hover{
     background-color: #587272;
 }
+
 .show:hover div.DropDownContent{
     opacity: 1;
     z-index: 98;
@@ -62,6 +63,9 @@ body nav .menu-content li:hover{
 .DropDownContent a{
     transition: background-color 0.5s;
     text-align: center;
+}
+.produkto-pavadinimas h3{
+  color: white;
 }
 .DropDownContent a:hover{
     background-color: #587272;
@@ -154,6 +158,9 @@ nav li{
     margin-left: 3%;
     margin-top: 5%;
     width: 50%;
+    min-height: 100%;
+    padding-bottom: 20%;
+    word-wrap: break-word
 }
 .kategorijos-sekcija{
     height: 30%;
@@ -234,6 +241,9 @@ nav li{
     margin-right: 6%;
     padding-right: 3%;
 
+}
+.Login{
+  float: right;
 }
 .Login button{
 

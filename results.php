@@ -2,7 +2,7 @@
 
 include_once  ("model_view_controller.php");
 
-$results = get_products_data();
+$results = get_products_data_for_grid();
 
 //print_r($results);
 

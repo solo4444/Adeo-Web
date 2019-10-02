@@ -1,5 +1,5 @@
 <?php
-//session_start();
+
 //print_r($_SESSION);
 if(empty($_SESSION["logged_in"])){
 echo '<div class="Login">
@@ -12,17 +12,18 @@ echo '<div class="Login">
         <p id="error_code"></p>
     </form>
     <a href="register_account.php">Register Now</a>
-</div>';
+</div>
+';
 }
 else if(isset($_SESSION["logged_in"])){
     if ($_SESSION["logged_in"] == "true"){
         echo '<div class="logged-in-user" >
             <h3 class="logged_in_user_username"> Sveiki '. $_SESSION["logged_in_user"] .'</h3>
             <h5><a href="account_settings.php">Paskyros nustatymai</a></h5>
-            <h5><a href="index.php" class="logout-button">Atsijungti</a></h5>
-            <h5><a href="administratoriaus_panele.php">Administratoriaus panele</a></h5>';
+            <h5><a href="index.php" class="logout-button">Atsijungti</a></h5>';
 
             if($_SESSION["logged_in_user"] == "kabakaba" && isset($_SESSION["show_admin"])){
+              echo '<h5><a href="administratoriaus_panele.php">Administratoriaus panele</a></h5>';
                 if($_SESSION["show_admin"] == "true"){
                     echo '<h5><a href="index.php" class="show-user-button">Rodyti kaip vartotojui</a></h5>';
                 }
