@@ -25,10 +25,10 @@ else if(isset($_SESSION["logged_in"])){
             if($_SESSION["logged_in_user"] == "kabakaba" && isset($_SESSION["show_admin"])){
               echo '<h5><a href="administratoriaus_panele.php">Administratoriaus panele</a></h5>';
                 if($_SESSION["show_admin"] == "true"){
-                    echo '<h5><a href="index.php" class="show-user-button">Rodyti kaip vartotojui</a></h5>';
+                    echo '<h5><a href="" class="show-user-button">Rodyti kaip vartotojui</a></h5>';
                 }
                 else{
-                    echo '<h5><a href="index.php" class="show-admin-button">Rodyti kaip adminui</a></h5>';
+                    echo '<h5><a href="" class="show-admin-button">Rodyti kaip adminui</a></h5>';
                 }
             }
             echo '</div>';

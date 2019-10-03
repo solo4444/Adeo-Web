@@ -1,5 +1,31 @@
-<?php echo'<script type="text/javascript" >
+<?php
+
+ echo'<script type="text/javascript" >
 $(document).ready(function(){
+  $(document).on("click", ".show-user-button", function(){
+      $.ajax({
+          type: "POST",
+          url: "show-diffrent-view.php",
+          data: { what_to_show: "user"} ,
+          success: function(response) {
+
+             location.reload();
+          }
+
+      });
+
+  });
+  $(document).on("click", ".show-admin-button", function(){
+      $.ajax({
+          type: "POST",
+          url: "show-diffrent-view.php",
+          data: { what_to_show: "admin"} ,
+          success: function(response) {
+             location.reload();
+          }
+
+      });
+});
   $(document).on("click", ".login-button", function(){
        var message, username, password;
        message = $(\'#error_code\').val();
