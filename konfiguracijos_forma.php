@@ -9,9 +9,15 @@ echo '<form class="upload-to-database" action="" method="post">
             <input type="email" class="form-control" id="TaxInput" placeholder="%" value='.$row["mokesciai"].'>
         </div>
         <div class="form-group col-md-3">
-          <label for="RodytiInput">Rodyti kaina su mokesciais</label>
-          <input type="checkbox" id="RodytiInput" checked data-toggle="toggle">
-        </div>
+          <label for="RodytiInput">Rodyti kaina su mokesciais</label>';
+          if($row["rodyti_su_mokesciais"]){
+            echo' <input type="checkbox" id="RodytiInput" checked data-toggle="toggle">';
+          }
+          else{
+            echo'<input type="checkbox" id="RodytiInput" data-toggle="toggle">';
+          }
+
+      echo'  </div>
         <div class="form-group col-md-3">
             <label for="ProductSPriceInput">Globali fiksuota nuolaida $</label>
             <input type="number" class="form-control" id="ProductPriceInput" placeholder="-$" value='.$row["g_nuolaida_fiksuota"].'>
